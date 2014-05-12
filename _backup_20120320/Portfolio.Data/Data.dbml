@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Portfolio" Class="DataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(local)\SQLExpress;Initial Catalog=Portfolio;Integrated Security=True" SettingsObjectName="Portfolio.Data.Properties.Settings" SettingsPropertyName="PortfolioConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.usp_DeleteAsset" Method="usp_DeleteAsset">
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usp_UpdatePrice" Method="usp_UpdatePrice">
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="FundId" Parameter="fundId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PriceDate" Parameter="priceDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Price" Parameter="price" Type="System.Decimal" DbType="Decimal(14,4)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usp_DeleteFund" Method="usp_DeleteFund">
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usp_DeletePrice" Method="usp_DeletePrice">
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usp_InsertAsset" Method="usp_InsertAsset">
+    <Parameter Name="FundId" Parameter="fundId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AssetDate" Parameter="assetDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Shares" Parameter="shares" Type="System.Decimal" DbType="Decimal(14,2)" />
+    <Parameter Name="Assets" Parameter="assets" Type="System.Decimal" DbType="Decimal(14,4)" />
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usp_InsertFund" Method="usp_InsertFund">
+    <Parameter Name="FundCode" Parameter="fundCode" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="FundName" Parameter="fundName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="FundType" Parameter="fundType" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="FundCodePrefix" Parameter="fundCodePrefix" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usp_InsertPrice" Method="usp_InsertPrice">
+    <Parameter Name="FundId" Parameter="fundId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PriceDate" Parameter="priceDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Price" Parameter="price" Type="System.Decimal" DbType="Decimal(14,4)" />
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usp_SelectAsset" Method="usp_SelectAsset">
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="usp_SelectAssetResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FundId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AssetDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Shares" Type="System.Decimal" DbType="Decimal(14,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Assets" Type="System.Decimal" DbType="Decimal(14,4) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.usp_SelectFund" Method="usp_SelectFund">
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="usp_SelectFundResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FundCode" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="FundName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FundType" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="FundCodePrefix" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.usp_SelectFundsAll" Method="usp_SelectFundsAll">
+    <ElementType Name="usp_SelectFundsAllResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FundCode" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="FundName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FundType" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="FundCodePrefix" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.usp_SelectPrice" Method="usp_SelectPrice">
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="usp_SelectPriceResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FundId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PriceDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(14,4) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.usp_SelectPricesAll" Method="usp_SelectPricesAll">
+    <ElementType Name="usp_SelectPricesAllResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FundId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PriceDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(14,4) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.usp_UpdateAsset" Method="usp_UpdateAsset">
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="FundId" Parameter="fundId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AssetDate" Parameter="assetDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Shares" Parameter="shares" Type="System.Decimal" DbType="Decimal(14,2)" />
+    <Parameter Name="Assets" Parameter="assets" Type="System.Decimal" DbType="Decimal(14,4)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usp_UpdateFund" Method="usp_UpdateFund">
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="FundCode" Parameter="fundCode" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="FundName" Parameter="fundName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="FundType" Parameter="fundType" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="FundCodePrefix" Parameter="fundCodePrefix" Type="System.String" DbType="VarChar(10)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usp_SelectPriceByFundAndDate" Method="usp_SelectPriceByFundAndDate">
+    <Parameter Name="FundId" Parameter="fundId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AsOfDate" Parameter="asOfDate" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="usp_SelectPriceByFundAndDateResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FundId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PriceDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(14,4) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.usp_SelectAssetByFundAndDate" Method="usp_SelectAssetByFundAndDate">
+    <Parameter Name="FundId" Parameter="fundId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AsOfDate" Parameter="asOfDate" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="usp_SelectAssetByFundAndDateResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FundId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AssetDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Shares" Type="System.Decimal" DbType="Decimal(14,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Assets" Type="System.Decimal" DbType="Decimal(14,4) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.usp_InsertJobEventLog" Method="usp_InsertJobEventLog">
+    <Parameter Name="Job" Parameter="job" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="RunDate" Parameter="runDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Status" Parameter="status" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="LastRunOn" Parameter="lastRunOn" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usp_SelectJobEventLogLastSuccessfulRun" Method="usp_SelectJobEventLogLastSuccessfulRun">
+    <Parameter Name="Job" Parameter="job" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="RunDate" Parameter="runDate" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="usp_SelectJobEventLogLastSuccessfulRunResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Job" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="RunDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="LastRunOn" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.usp_SelectAssetsByDate" Method="usp_SelectAssetsByDate">
+    <Parameter Name="AsOfDate" Parameter="asOfDate" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="usp_SelectAssetsByDateResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FundId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FundName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FundType" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Shares" Type="System.Decimal" DbType="Decimal(14,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Assets" Type="System.Decimal" DbType="Decimal(14,4) NOT NULL" CanBeNull="false" />
+      <Column Name="AssetDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.usp_SelectAssetsAll" Method="usp_SelectAssetsAll">
+    <ElementType Name="usp_SelectAssetsAllResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FundId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FundName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FundType" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Shares" Type="System.Decimal" DbType="Decimal(14,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Assets" Type="System.Decimal" DbType="Decimal(14,4) NOT NULL" CanBeNull="false" />
+      <Column Name="AssetDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.usp_SelectAssetsByDateRange" Method="usp_SelectAssetsByDateRange">
+    <Parameter Name="BeginDate" Parameter="beginDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="EndDate" Parameter="endDate" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="usp_SelectAssetsByDateRangeResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FundId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FundName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FundType" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Shares" Type="System.Decimal" DbType="Decimal(14,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Assets" Type="System.Decimal" DbType="Decimal(14,4) NOT NULL" CanBeNull="false" />
+      <Column Name="AssetDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.usp_InsertExchangeRate" Method="usp_InsertExchangeRate">
+    <Parameter Name="Currency" Parameter="currency" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="Rate" Parameter="rate" Type="System.Decimal" DbType="Decimal(14,4)" />
+    <Parameter Name="RateDate" Parameter="rateDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usp_DeleteExchangeRate" Method="usp_DeleteExchangeRate">
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usp_SelectExchangeRate" Method="usp_SelectExchangeRate">
+    <Parameter Name="Currency" Parameter="currency" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="AsOfDate" Parameter="asOfDate" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="usp_SelectExchangeRateResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Currency" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Rate" Type="System.Decimal" DbType="Decimal(14,4) NOT NULL" CanBeNull="false" />
+      <Column Name="RateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.usp_UpdateExchangeRate" Method="usp_UpdateExchangeRate">
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Currency" Parameter="currency" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="Rate" Parameter="rate" Type="System.Decimal" DbType="Decimal(14,4)" />
+    <Parameter Name="RateDate" Parameter="rateDate" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

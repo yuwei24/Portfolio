@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PortfolioModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="PortfolioModelStoreContainer">
+          <EntitySet Name="Funds" EntityType="PortfolioModel.Store.Funds" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="Funds">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FundCode" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="FundName" Type="nvarchar" MaxLength="50" />
+          <Property Name="FundType" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="FundCodePrefix" Type="varchar" MaxLength="10" />
+          <Property Name="Currency" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <Function Name="usp_DeleteFund" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_InsertFund" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FundCode" Type="varchar" Mode="In" />
+          <Parameter Name="FundName" Type="nvarchar" Mode="In" />
+          <Parameter Name="FundType" Type="varchar" Mode="In" />
+          <Parameter Name="FundCodePrefix" Type="varchar" Mode="In" />
+          <Parameter Name="Id" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="usp_SelectFund" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_SelectFundsAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PortfolioModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="PortfolioEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Funds" EntityType="PortfolioModel.Fund" />
+        </EntityContainer>
+        <EntityType Name="Fund">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FundCode" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="FundName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="FundType" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="FundCodePrefix" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="Currency" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PortfolioModelStoreContainer" CdmEntityContainer="PortfolioEntities">
+          <EntitySetMapping Name="Funds"><EntityTypeMapping TypeName="PortfolioModel.Fund"><MappingFragment StoreEntitySet="Funds">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="FundCode" ColumnName="FundCode" />
+            <ScalarProperty Name="FundName" ColumnName="FundName" />
+            <ScalarProperty Name="FundType" ColumnName="FundType" />
+            <ScalarProperty Name="FundCodePrefix" ColumnName="FundCodePrefix" />
+            <ScalarProperty Name="Currency" ColumnName="Currency" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="FundModel">
+        <EntityTypeShape EntityType="PortfolioModel.Fund" Width="1.5" PointX="0.75" PointY="0.75" Height="1.9210009765625" IsExpanded="true" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

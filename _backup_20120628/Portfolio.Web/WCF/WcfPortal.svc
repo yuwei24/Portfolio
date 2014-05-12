@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="VB" Debug="true" Service="Csla.Server.Hosts.Silverlight.WcfPortal" %>
