@@ -1,0 +1,2 @@
+D:\Projects\Portfolio\Portfolio.Web\Portfolio.Web.csproj,634715671268377645,Global.asax.cs,Properties\AssemblyInfo.cs,Trade.aspx.cs,Trade.aspx.designer.cs,
+D:\Projects\Portfolio\Portfolio.Business\Portfolio.Business.csproj,634678530301762471,Asset.cs,AssetInfo.cs,AssetList.cs,ExchangeRate.cs,Fund.cs,JobEventLog.cs,Price.cs,Properties\AssemblyInfo.cs,

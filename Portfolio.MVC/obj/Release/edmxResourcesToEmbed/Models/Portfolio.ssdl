@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PortfolioModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="PortfolioModelStoreContainer">
+    <EntitySet Name="Assets" EntityType="PortfolioModel.Store.Assets" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Deposit" EntityType="PortfolioModel.Store.Deposit" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Divident" EntityType="PortfolioModel.Store.Divident" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EventLog" EntityType="PortfolioModel.Store.EventLog" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ExchangeRate" EntityType="PortfolioModel.Store.ExchangeRate" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Funds" EntityType="PortfolioModel.Store.Funds" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="JobEventLog" EntityType="PortfolioModel.Store.JobEventLog" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Price" EntityType="PortfolioModel.Store.Price" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Reminders" EntityType="PortfolioModel.Store.Reminders" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Trades" EntityType="PortfolioModel.Store.Trades" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Assets_Fund" Association="PortfolioModel.Store.FK_Assets_Fund">
+      <End Role="Funds" EntitySet="Funds" />
+      <End Role="Assets" EntitySet="Assets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Deposits_Fund" Association="PortfolioModel.Store.FK_Deposits_Fund">
+      <End Role="Funds" EntitySet="Funds" />
+      <End Role="Deposit" EntitySet="Deposit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Divident_Funds" Association="PortfolioModel.Store.FK_Divident_Funds">
+      <End Role="Funds" EntitySet="Funds" />
+      <End Role="Divident" EntitySet="Divident" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Trades_Fund" Association="PortfolioModel.Store.FK_Trades_Fund">
+      <End Role="Funds" EntitySet="Funds" />
+      <End Role="Trades" EntitySet="Trades" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Assets">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FundId" Type="int" Nullable="false" />
+    <Property Name="AssetDate" Type="datetime" Nullable="false" />
+    <Property Name="Shares" Type="decimal" Nullable="false" Precision="14" Scale="2" />
+    <Property Name="Assets" Type="decimal" Nullable="false" Precision="14" Scale="4" />
+  </EntityType>
+  <EntityType Name="Deposit">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DepositDate" Type="datetime" Nullable="false" />
+    <Property Name="MatureDate" Type="datetime" Nullable="false" />
+    <Property Name="Duration" Type="int" Nullable="false" />
+    <Property Name="Amount" Type="decimal" Nullable="false" Precision="14" Scale="4" />
+    <Property Name="InterestRate" Type="decimal" Nullable="false" Precision="14" Scale="4" />
+    <Property Name="Bank" Type="nvarchar" MaxLength="50" />
+    <Property Name="FundId" Type="int" />
+  </EntityType>
+  <EntityType Name="Divident">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FundId" Type="int" Nullable="false" />
+    <Property Name="DividentDate" Type="datetime" Nullable="false" />
+    <Property Name="Shares" Type="decimal" Nullable="false" Precision="14" Scale="2" />
+    <Property Name="Amount" Type="decimal" Nullable="false" Precision="14" Scale="4" />
+  </EntityType>
+  <EntityType Name="EventLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="Message" Type="varchar(max)" Nullable="false" />
+    <Property Name="LogTimestamp" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ExchangeRate">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Currency" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="Rate" Type="decimal" Nullable="false" Precision="14" Scale="4" />
+    <Property Name="RateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Funds">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FundCode" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="FundName" Type="nvarchar" MaxLength="50" />
+    <Property Name="FundType" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="FundCodePrefix" Type="varchar" MaxLength="10" />
+    <Property Name="Currency" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="JobEventLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Job" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="RunDate" Type="datetime" Nullable="false" />
+    <Property Name="Status" Type="smallint" Nullable="false" />
+    <Property Name="LastRunOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Price">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FundId" Type="int" Nullable="false" />
+    <Property Name="PriceDate" Type="datetime" Nullable="false" />
+    <Property Name="Price" Type="decimal" Nullable="false" Precision="14" Scale="4" />
+  </EntityType>
+  <EntityType Name="Reminders">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Due" Type="datetime" Nullable="false" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="Trades">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FundId" Type="int" Nullable="false" />
+    <Property Name="TradeDate" Type="datetime" Nullable="false" />
+    <Property Name="Shares" Type="decimal" Nullable="false" Precision="14" Scale="2" />
+    <Property Name="Amount" Type="decimal" Nullable="false" Precision="14" Scale="4" />
+  </EntityType>
+  <Association Name="FK_Assets_Fund">
+    <End Role="Funds" Type="PortfolioModel.Store.Funds" Multiplicity="1" />
+    <End Role="Assets" Type="PortfolioModel.Store.Assets" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Funds">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Assets">
+        <PropertyRef Name="FundId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Deposits_Fund">
+    <End Role="Funds" Type="PortfolioModel.Store.Funds" Multiplicity="0..1" />
+    <End Role="Deposit" Type="PortfolioModel.Store.Deposit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Funds">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Deposit">
+        <PropertyRef Name="FundId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Divident_Funds">
+    <End Role="Funds" Type="PortfolioModel.Store.Funds" Multiplicity="1" />
+    <End Role="Divident" Type="PortfolioModel.Store.Divident" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Funds">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Divident">
+        <PropertyRef Name="FundId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Trades_Fund">
+    <End Role="Funds" Type="PortfolioModel.Store.Funds" Multiplicity="1" />
+    <End Role="Trades" Type="PortfolioModel.Store.Trades" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Funds">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Trades">
+        <PropertyRef Name="FundId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fnc_GetNextBusinessDate" ReturnType="datetime" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Date" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="usp_DeleteAsset" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_DeleteExchangeRate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_DeleteFund" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_DeletePrice" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_InsertAsset" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FundId" Type="int" Mode="In" />
+    <Parameter Name="AssetDate" Type="datetime" Mode="In" />
+    <Parameter Name="Shares" Type="decimal" Mode="In" />
+    <Parameter Name="Assets" Type="decimal" Mode="In" />
+    <Parameter Name="Id" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="usp_InsertEventLog" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Type" Type="varchar" Mode="In" />
+    <Parameter Name="Message" Type="varchar(max)" Mode="In" />
+    <Parameter Name="LogTimestamp" Type="datetime" Mode="In" />
+    <Parameter Name="Id" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="usp_InsertExchangeRate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Currency" Type="varchar" Mode="In" />
+    <Parameter Name="Rate" Type="decimal" Mode="In" />
+    <Parameter Name="RateDate" Type="datetime" Mode="In" />
+    <Parameter Name="Id" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="usp_InsertFund" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FundCode" Type="varchar" Mode="In" />
+    <Parameter Name="FundName" Type="nvarchar" Mode="In" />
+    <Parameter Name="FundType" Type="varchar" Mode="In" />
+    <Parameter Name="FundCodePrefix" Type="varchar" Mode="In" />
+    <Parameter Name="Id" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="usp_InsertJobEventLog" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Job" Type="varchar" Mode="In" />
+    <Parameter Name="RunDate" Type="datetime" Mode="In" />
+    <Parameter Name="Status" Type="smallint" Mode="In" />
+    <Parameter Name="LastRunOn" Type="datetime" Mode="In" />
+    <Parameter Name="Id" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="usp_InsertPrice" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FundId" Type="int" Mode="In" />
+    <Parameter Name="PriceDate" Type="datetime" Mode="In" />
+    <Parameter Name="Price" Type="decimal" Mode="In" />
+    <Parameter Name="Id" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="usp_InsertTrade" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FundId" Type="int" Mode="In" />
+    <Parameter Name="TradeDate" Type="datetime" Mode="In" />
+    <Parameter Name="Shares" Type="decimal" Mode="In" />
+    <Parameter Name="Amount" Type="decimal" Mode="In" />
+  </Function>
+  <Function Name="usp_SelectAsset" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_SelectAssetByFundAndDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FundId" Type="int" Mode="In" />
+    <Parameter Name="AsOfDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="usp_SelectAssetsAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="usp_SelectAssetsByDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FundType" Type="varchar" Mode="In" />
+    <Parameter Name="AsOfDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="usp_SelectAssetsByDateRange" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FundType" Type="varchar" Mode="In" />
+    <Parameter Name="BeginDate" Type="datetime" Mode="In" />
+    <Parameter Name="EndDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="usp_SelectExchangeRate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Currency" Type="varchar" Mode="In" />
+    <Parameter Name="AsOfDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="usp_SelectFund" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_SelectFundsAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="usp_SelectJobEventLogLastSuccessfulRun" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Job" Type="varchar" Mode="In" />
+    <Parameter Name="RunDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="usp_SelectPrice" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_SelectPriceByFundAndDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FundId" Type="int" Mode="In" />
+    <Parameter Name="AsOfDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="usp_SelectPricesAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="usp_UpdateAsset" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="FundId" Type="int" Mode="In" />
+    <Parameter Name="AssetDate" Type="datetime" Mode="In" />
+    <Parameter Name="Shares" Type="decimal" Mode="In" />
+    <Parameter Name="Assets" Type="decimal" Mode="In" />
+  </Function>
+  <Function Name="usp_UpdateExchangeRate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Currency" Type="varchar" Mode="In" />
+    <Parameter Name="Rate" Type="decimal" Mode="In" />
+    <Parameter Name="RateDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="usp_UpdateFund" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="FundCode" Type="varchar" Mode="In" />
+    <Parameter Name="FundName" Type="nvarchar" Mode="In" />
+    <Parameter Name="FundType" Type="varchar" Mode="In" />
+    <Parameter Name="FundCodePrefix" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_UpdatePrice" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="FundId" Type="int" Mode="In" />
+    <Parameter Name="PriceDate" Type="datetime" Mode="In" />
+    <Parameter Name="Price" Type="decimal" Mode="In" />
+  </Function>
+</Schema>

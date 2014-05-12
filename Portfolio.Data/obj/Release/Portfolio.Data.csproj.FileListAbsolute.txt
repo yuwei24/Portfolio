@@ -1,0 +1,15 @@
+C:\Projects\Portfolio\Portfolio.Data\bin\Release\Portfolio.Data.dll.config
+C:\Projects\Portfolio\Portfolio.Data\bin\Release\Portfolio.Data.dll
+C:\Projects\Portfolio\Portfolio.Data\bin\Release\Portfolio.Data.pdb
+C:\Projects\Portfolio\Portfolio.Data\obj\Release\Portfolio.Data.dll
+C:\Projects\Portfolio\Portfolio.Data\obj\Release\Portfolio.Data.pdb
+Z:\Portfolio\Portfolio.Data\bin\Release\Portfolio.Data.dll.config
+Z:\Portfolio\Portfolio.Data\bin\Release\Portfolio.Data.dll
+Z:\Portfolio\Portfolio.Data\bin\Release\Portfolio.Data.pdb
+Z:\Portfolio\Portfolio.Data\obj\Release\Portfolio.Data.dll
+Z:\Portfolio\Portfolio.Data\obj\Release\Portfolio.Data.pdb
+C:\Will\Portfolio\Portfolio.Data\bin\Release\Portfolio.Data.dll.config
+C:\Will\Portfolio\Portfolio.Data\bin\Release\Portfolio.Data.dll
+C:\Will\Portfolio\Portfolio.Data\bin\Release\Portfolio.Data.pdb
+C:\Will\Portfolio\Portfolio.Data\obj\Release\Portfolio.Data.dll
+C:\Will\Portfolio\Portfolio.Data\obj\Release\Portfolio.Data.pdb

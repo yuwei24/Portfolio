@@ -1,0 +1,10 @@
+D:\Projects\Portfolio\Portfolio.Silverlight.Web\obj\Debug\ResolveAssemblyReference.cache
+D:\Projects\Portfolio\Portfolio.Silverlight.Web\bin\Portfolio.Silverlight.Web.dll
+D:\Projects\Portfolio\Portfolio.Silverlight.Web\bin\Portfolio.Silverlight.Web.pdb
+D:\Projects\Portfolio\Portfolio.Silverlight.Web\bin\Csla.dll
+D:\Projects\Portfolio\Portfolio.Silverlight.Web\bin\Portfolio.Business.dll
+D:\Projects\Portfolio\Portfolio.Silverlight.Web\bin\Portfolio.Data.dll
+D:\Projects\Portfolio\Portfolio.Silverlight.Web\bin\Portfolio.Business.pdb
+D:\Projects\Portfolio\Portfolio.Silverlight.Web\bin\Portfolio.Data.pdb
+D:\Projects\Portfolio\Portfolio.Silverlight.Web\obj\Debug\Portfolio.Silverlight.Web.dll
+D:\Projects\Portfolio\Portfolio.Silverlight.Web\obj\Debug\Portfolio.Silverlight.Web.pdb

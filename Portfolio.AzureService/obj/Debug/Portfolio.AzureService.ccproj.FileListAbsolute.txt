@@ -1,0 +1,3 @@
+Z:\Portfolio\Portfolio.AzureService\bin\Debug\ServiceConfiguration.cscfg
+C:\Will\Portfolio\Portfolio.AzureService\bin\Debug\ServiceConfiguration.cscfg
+C:\Projects\Portfolio\Portfolio.AzureService\bin\Debug\ServiceConfiguration.cscfg

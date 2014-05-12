@@ -1,0 +1,2 @@
+Z:\Portfolio\Portfolio.TestWin\bin\Release\Portfolio.TestWin.exe.config
+D:\Projects\Portfolio\Portfolio.TestWin\bin\Release\Portfolio.TestWin.exe.config

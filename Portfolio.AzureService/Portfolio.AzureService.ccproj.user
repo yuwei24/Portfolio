@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <RemoteDesktopMoreOptions>False</RemoteDesktopMoreOptions>
+    <ActivePublishProfile>portfolio2403Production</ActivePublishProfile>
+    <PackageProfile>Cloud</PackageProfile>
+    <PackageSolutionConfiguration>Release</PackageSolutionConfiguration>
+    <PackageEnableRemoteDesktop>True</PackageEnableRemoteDesktop>
+    <DeploymentPromptBeforeUpgrading>False</DeploymentPromptBeforeUpgrading>
+    <DeploymentPromptBeforeDeleting>False</DeploymentPromptBeforeDeleting>
+    <LocalProfile>Cloud</LocalProfile>
+  </PropertyGroup>
+</Project>

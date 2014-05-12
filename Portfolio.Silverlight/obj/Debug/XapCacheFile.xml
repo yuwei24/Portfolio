@@ -1,0 +1,22 @@
+﻿<xapCache source="D:\Projects\Portfolio\Portfolio.Silverlight\Bin\Debug\Portfolio.Silverlight.xap" wasSigned="False" certificateThumbprint="" TimeStampUrl="" lastWriteTime="6/26/2012 10:28:51 AM">
+  <file source="D:\Projects\Portfolio\Portfolio.Silverlight\obj\Debug\Portfolio.Silverlight.dll" archivePath="Portfolio.Silverlight.dll" lastWriteTime="6/26/2012 10:28:47 AM" />
+  <file source="D:\Projects\Portfolio\Portfolio.Reference\Silverlight\Csla.dll" archivePath="Csla.dll" lastWriteTime="10/19/2011 4:05:10 PM" />
+  <file source="D:\Projects\Portfolio\Portfolio.Business.Silverlight\Bin\Debug\Portfolio.Business.dll" archivePath="Portfolio.Business.dll" lastWriteTime="5/2/2012 3:53:06 PM" />
+  <file source="C:\Program Files\Microsoft SDKs\Silverlight\v4.0\Libraries\Client\System.ComponentModel.DataAnnotations.dll" archivePath="System.ComponentModel.DataAnnotations.dll" lastWriteTime="3/10/2011 12:08:16 AM" />
+  <file source="C:\Program Files\Microsoft SDKs\RIA Services\v1.0\Libraries\Silverlight\System.ServiceModel.DomainServices.Client.dll" archivePath="System.ServiceModel.DomainServices.Client.dll" lastWriteTime="5/6/2010 2:24:00 PM" />
+  <file source="C:\Program Files\Microsoft SDKs\RIA Services\v1.0\Libraries\Silverlight\System.ServiceModel.DomainServices.Client.Web.dll" archivePath="System.ServiceModel.DomainServices.Client.Web.dll" lastWriteTime="5/6/2010 2:23:58 PM" />
+  <file source="C:\Program Files\Microsoft SDKs\Silverlight\v4.0\Libraries\Client\System.ServiceModel.Web.Extensions.dll" archivePath="System.ServiceModel.Web.Extensions.dll" lastWriteTime="3/10/2011 12:08:16 AM" />
+  <file source="C:\Program Files\Microsoft SDKs\Silverlight\v4.0\Libraries\Client\System.Windows.Controls.Data.Input.dll" archivePath="System.Windows.Controls.Data.Input.dll" lastWriteTime="3/10/2011 12:08:16 AM" />
+  <file source="D:\Projects\Portfolio\Portfolio.Reference\Telerik\Telerik.Windows.Controls.Charting.dll" archivePath="Telerik.Windows.Controls.Charting.dll" lastWriteTime="10/19/2011 4:04:56 PM" />
+  <file source="D:\Projects\Portfolio\Portfolio.Reference\Telerik\Telerik.Windows.Controls.Data.dll" archivePath="Telerik.Windows.Controls.Data.dll" lastWriteTime="10/19/2011 4:04:51 PM" />
+  <file source="D:\Projects\Portfolio\Portfolio.Reference\Telerik\Telerik.Windows.Controls.dll" archivePath="Telerik.Windows.Controls.dll" lastWriteTime="10/19/2011 4:05:06 PM" />
+  <file source="D:\Projects\Portfolio\Portfolio.Reference\Telerik\Telerik.Windows.Controls.GridView.dll" archivePath="Telerik.Windows.Controls.GridView.dll" lastWriteTime="10/19/2011 4:05:02 PM" />
+  <file source="D:\Projects\Portfolio\Portfolio.Reference\Telerik\Telerik.Windows.Controls.Input.dll" archivePath="Telerik.Windows.Controls.Input.dll" lastWriteTime="10/19/2011 4:05:03 PM" />
+  <file source="D:\Projects\Portfolio\Portfolio.Reference\Telerik\Telerik.Windows.Controls.Navigation.dll" archivePath="Telerik.Windows.Controls.Navigation.dll" lastWriteTime="10/19/2011 4:05:07 PM" />
+  <file source="D:\Projects\Portfolio\Portfolio.Reference\Telerik\Telerik.Windows.Data.dll" archivePath="Telerik.Windows.Data.dll" lastWriteTime="10/19/2011 4:05:06 PM" />
+  <file source="C:\Program Files\Microsoft SDKs\Silverlight\v4.0\Libraries\Client\System.Data.Services.Client.dll" archivePath="System.Data.Services.Client.dll" lastWriteTime="3/10/2011 12:08:16 AM" />
+  <file source="C:\Program Files\Microsoft SDKs\Silverlight\v4.0\Libraries\Client\System.Windows.Data.dll" archivePath="System.Windows.Data.dll" lastWriteTime="3/10/2011 12:08:16 AM" />
+  <file source="C:\Program Files\Microsoft SDKs\Silverlight\v4.0\Libraries\Client\System.Xml.Linq.dll" archivePath="System.Xml.Linq.dll" lastWriteTime="3/10/2011 12:08:16 AM" />
+  <file source="D:\Projects\Portfolio\Portfolio.Silverlight\ServiceReferences.ClientConfig" archivePath="ServiceReferences.ClientConfig" lastWriteTime="3/20/2012 4:48:14 PM" />
+  <file source="D:\Projects\Portfolio\Portfolio.Silverlight\Bin\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="3/20/2012 5:17:54 PM" />
+</xapCache>

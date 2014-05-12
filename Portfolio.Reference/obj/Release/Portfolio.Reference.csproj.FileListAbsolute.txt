@@ -1,0 +1,4 @@
+Z:\Portfolio\Portfolio.Reference\bin\Release\Portfolio.Reference.dll
+Z:\Portfolio\Portfolio.Reference\bin\Release\Portfolio.Reference.pdb
+Z:\Portfolio\Portfolio.Reference\obj\Release\Portfolio.Reference.dll
+Z:\Portfolio\Portfolio.Reference\obj\Release\Portfolio.Reference.pdb

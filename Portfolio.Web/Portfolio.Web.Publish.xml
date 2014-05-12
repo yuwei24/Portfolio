@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="http://localhost/Portfolio_Publish" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="Default Web Site/MyPortfolio" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FileSystem" replaceMatchingFiles="True" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="Web.config" publishTime="05/23/2012 15:05:29" />
+    <file relUrl="Portfolio.SilverlightTestPage.aspx" publishTime="03/16/2012 10:32:22" />
+    <file relUrl="Trade.aspx" publishTime="05/02/2012 16:17:40" />
+    <file relUrl="bin/Portfolio.Web.dll" publishTime="05/23/2012 15:05:27" />
+    <file relUrl="Silverlight.js" publishTime="03/16/2012 10:32:22" />
+    <file relUrl="bin/Portfolio.Web.pdb" publishTime="05/23/2012 15:05:27" />
+    <file relUrl="bin/Portfolio.Business.pdb" publishTime="05/02/2012 15:53:07" />
+    <file relUrl="bin/Csla.dll" publishTime="03/12/2012 15:08:51" />
+    <file relUrl="Global.asax" publishTime="03/20/2012 16:46:26" />
+    <file relUrl="Portfolio.SilverlightTestPage.html" publishTime="03/16/2012 10:32:22" />
+    <file relUrl="bin/AjaxControlToolkit.dll" publishTime="10/19/2011 16:04:43" />
+    <file relUrl="WCF/WcfPortal.svc" publishTime="10/19/2011 15:17:14" />
+    <file relUrl="bin/Portfolio.Data.pdb" publishTime="05/02/2012 15:52:22" />
+    <file relUrl="bin/Portfolio.Business.dll" publishTime="05/02/2012 15:53:07" />
+    <file relUrl="ClientBin/Portfolio.Silverlight.xap" publishTime="05/17/2012 10:09:16" />
+    <file relUrl="bin/Portfolio.Data.dll" publishTime="05/02/2012 15:52:23" />
+  </publishProfile>
+</publishData>

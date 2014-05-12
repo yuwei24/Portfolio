@@ -1,0 +1,16 @@
+Z:\Portfolio\Portfolio.MVC\bin\Portfolio.MVC.dll
+Z:\Portfolio\Portfolio.MVC\bin\Portfolio.MVC.pdb
+Z:\Portfolio\Portfolio.MVC\bin\EntityFramework.dll
+Z:\Portfolio\Portfolio.MVC\bin\Microsoft.Web.Helpers.dll
+Z:\Portfolio\Portfolio.MVC\bin\EntityFramework.xml
+Z:\Portfolio\Portfolio.MVC\obj\Release\Portfolio.MVC.csprojResolveAssemblyReference.cache
+Z:\Portfolio\Portfolio.MVC\obj\Release\Portfolio.MVC.dll
+Z:\Portfolio\Portfolio.MVC\obj\Release\Portfolio.MVC.pdb
+D:\Projects\Portfolio\Portfolio.MVC\bin\Portfolio.MVC.dll
+D:\Projects\Portfolio\Portfolio.MVC\bin\Portfolio.MVC.pdb
+D:\Projects\Portfolio\Portfolio.MVC\bin\EntityFramework.dll
+D:\Projects\Portfolio\Portfolio.MVC\bin\Microsoft.Web.Helpers.dll
+D:\Projects\Portfolio\Portfolio.MVC\bin\EntityFramework.xml
+D:\Projects\Portfolio\Portfolio.MVC\obj\Release\ResolveAssemblyReference.cache
+D:\Projects\Portfolio\Portfolio.MVC\obj\Release\Portfolio.MVC.dll
+D:\Projects\Portfolio\Portfolio.MVC\obj\Release\Portfolio.MVC.pdb

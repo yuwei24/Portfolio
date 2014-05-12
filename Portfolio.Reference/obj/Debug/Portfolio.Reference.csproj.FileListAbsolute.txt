@@ -1,0 +1,13 @@
+D:\Projects\Portfolio\Portfolio.Reference\bin\Debug\Portfolio.Reference.dll
+D:\Projects\Portfolio\Portfolio.Reference\bin\Debug\Portfolio.Reference.pdb
+D:\Projects\Portfolio\Portfolio.Reference\obj\Debug\ResolveAssemblyReference.cache
+D:\Projects\Portfolio\Portfolio.Reference\obj\Debug\Portfolio.Reference.dll
+D:\Projects\Portfolio\Portfolio.Reference\obj\Debug\Portfolio.Reference.pdb
+Z:\Portfolio\Portfolio.Reference\bin\Debug\Portfolio.Reference.dll
+Z:\Portfolio\Portfolio.Reference\bin\Debug\Portfolio.Reference.pdb
+Z:\Portfolio\Portfolio.Reference\obj\Debug\Portfolio.Reference.dll
+Z:\Portfolio\Portfolio.Reference\obj\Debug\Portfolio.Reference.pdb
+C:\Projects\Portfolio\Portfolio.Reference\bin\Debug\Portfolio.Reference.dll
+C:\Projects\Portfolio\Portfolio.Reference\bin\Debug\Portfolio.Reference.pdb
+C:\Projects\Portfolio\Portfolio.Reference\obj\Debug\Portfolio.Reference.dll
+C:\Projects\Portfolio\Portfolio.Reference\obj\Debug\Portfolio.Reference.pdb

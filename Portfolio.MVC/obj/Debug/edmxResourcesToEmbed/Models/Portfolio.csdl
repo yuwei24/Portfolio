@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PortfolioModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="PortfolioEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Assets" EntityType="PortfolioModel.Asset" />
+    <EntitySet Name="ExchangeRates" EntityType="PortfolioModel.ExchangeRate" />
+    <EntitySet Name="Funds" EntityType="PortfolioModel.Fund" />
+    <EntitySet Name="JobEventLogs" EntityType="PortfolioModel.JobEventLog" />
+    <EntitySet Name="Prices" EntityType="PortfolioModel.Price" />
+    <EntitySet Name="Trades" EntityType="PortfolioModel.Trade" />
+    <AssociationSet Name="FK_Assets_Fund" Association="PortfolioModel.FK_Assets_Fund">
+      <End Role="Fund" EntitySet="Funds" />
+      <End Role="Asset" EntitySet="Assets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Trades_Fund" Association="PortfolioModel.FK_Trades_Fund">
+      <End Role="Fund" EntitySet="Funds" />
+      <End Role="Trade" EntitySet="Trades" />
+    </AssociationSet>
+    <EntitySet Name="Deposits" EntityType="PortfolioModel.Deposit" />
+    <EntitySet Name="Dividents" EntityType="PortfolioModel.Divident" />
+    <AssociationSet Name="FK_Divident_Funds" Association="PortfolioModel.FK_Divident_Funds">
+      <End Role="Fund" EntitySet="Funds" />
+      <End Role="Divident" EntitySet="Dividents" />
+    </AssociationSet>
+    <EntitySet Name="EventLogs" EntityType="PortfolioModel.EventLog" />
+    <AssociationSet Name="FK_Deposits_Fund" Association="PortfolioModel.FK_Deposits_Fund">
+      <End Role="Fund" EntitySet="Funds" />
+      <End Role="Deposit" EntitySet="Deposits" />
+    </AssociationSet>
+    <EntitySet Name="Reminders" EntityType="PortfolioModel.Reminder" />
+    <FunctionImport Name="usp_SelectInvestmentAll" ReturnType="Collection(PortfolioModel.usp_SelectInvestmentAll_Result2)" />
+    <FunctionImport Name="usp_SelectAssetsInvestmentOnlyAll" ReturnType="Collection(PortfolioModel.usp_SelectAssetsInvestmentOnlyAll_Result)" />
+    <EntitySet Name="AssetsInvestmentOnlies" EntityType="PortfolioModel.AssetsInvestmentOnly" />
+  </EntityContainer>
+  <EntityType Name="Asset">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FundId" Type="Int32" Nullable="false" />
+    <Property Name="AssetDate" Type="DateTime" Nullable="false" />
+    <Property Name="Shares" Type="Decimal" Nullable="false" Precision="14" Scale="2" />
+    <Property Name="Assets" Type="Decimal" Nullable="false" Precision="14" Scale="4" />
+    <NavigationProperty Name="Fund" Relationship="PortfolioModel.FK_Assets_Fund" FromRole="Asset" ToRole="Fund" />
+  </EntityType>
+  <EntityType Name="ExchangeRate">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Currency" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="Rate" Type="Decimal" Nullable="false" Precision="14" Scale="4" />
+    <Property Name="RateDate" Type="DateTime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Fund">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FundCode" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="FundName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="FundType" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="FundCodePrefix" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="Currency" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Assets" Relationship="PortfolioModel.FK_Assets_Fund" FromRole="Fund" ToRole="Asset" />
+    <NavigationProperty Name="Trades" Relationship="PortfolioModel.FK_Trades_Fund" FromRole="Fund" ToRole="Trade" />
+    <NavigationProperty Name="Dividents" Relationship="PortfolioModel.FK_Divident_Funds" FromRole="Fund" ToRole="Divident" />
+    <NavigationProperty Name="Deposits" Relationship="PortfolioModel.FK_Deposits_Fund" FromRole="Fund" ToRole="Deposit" />
+    <Property Type="String" Name="Category" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="Active" Nullable="true" />
+  </EntityType>
+  <EntityType Name="JobEventLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Job" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="RunDate" Type="DateTime" Nullable="false" />
+    <Property Name="Status" Type="Int16" Nullable="false" />
+    <Property Name="LastRunOn" Type="DateTime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Price">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FundId" Type="Int32" Nullable="false" />
+    <Property Name="PriceDate" Type="DateTime" Nullable="false" />
+    <Property Name="Price1" Type="Decimal" Nullable="false" Precision="14" Scale="4" />
+  </EntityType>
+  <EntityType Name="Trade">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FundId" Type="Int32" Nullable="false" />
+    <Property Name="TradeDate" Type="DateTime" Nullable="false" />
+    <Property Name="Shares" Type="Decimal" Nullable="false" Precision="14" Scale="2" />
+    <Property Name="Amount" Type="Decimal" Nullable="false" Precision="14" Scale="4" />
+    <NavigationProperty Name="Fund" Relationship="PortfolioModel.FK_Trades_Fund" FromRole="Trade" ToRole="Fund" />
+  </EntityType>
+  <Association Name="FK_Assets_Fund">
+    <End Type="PortfolioModel.Fund" Role="Fund" Multiplicity="1" />
+    <End Type="PortfolioModel.Asset" Role="Asset" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fund">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Asset">
+        <PropertyRef Name="FundId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Trades_Fund">
+    <End Type="PortfolioModel.Fund" Role="Fund" Multiplicity="1" />
+    <End Type="PortfolioModel.Trade" Role="Trade" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fund">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Trade">
+        <PropertyRef Name="FundId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Deposit">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="DateTime" Name="DepositDate" Nullable="false" />
+    <Property Type="DateTime" Name="MatureDate" Nullable="false" />
+    <Property Type="Int32" Name="Duration" Nullable="false" />
+    <Property Type="Decimal" Name="Amount" Nullable="false" Precision="14" Scale="4" />
+    <Property Type="Decimal" Name="InterestRate" Nullable="false" Precision="14" Scale="4" />
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Bank" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="FundId" />
+    <NavigationProperty Name="Fund" Relationship="PortfolioModel.FK_Deposits_Fund" FromRole="Deposit" ToRole="Fund" />
+  </EntityType>
+  <EntityType Name="Divident">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="FundId" Nullable="false" />
+    <Property Type="DateTime" Name="DividentDate" Nullable="false" />
+    <Property Type="Decimal" Name="Shares" Nullable="false" Precision="14" Scale="2" />
+    <Property Type="Decimal" Name="Amount" Nullable="false" Precision="14" Scale="4" />
+    <NavigationProperty Name="Fund" Relationship="PortfolioModel.FK_Divident_Funds" FromRole="Divident" ToRole="Fund" />
+  </EntityType>
+  <Association Name="FK_Divident_Funds">
+    <End Type="PortfolioModel.Fund" Role="Fund" Multiplicity="1" />
+    <End Type="PortfolioModel.Divident" Role="Divident" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fund">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Divident">
+        <PropertyRef Name="FundId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="EventLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Type" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Message" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="LogTimestamp" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Deposits_Fund">
+    <End Type="PortfolioModel.Fund" Role="Fund" Multiplicity="0..1" />
+    <End Type="PortfolioModel.Deposit" Role="Deposit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fund">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Deposit">
+        <PropertyRef Name="FundId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Reminder">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="DateTime" Name="Due" Nullable="false" />
+    <Property Type="String" Name="Remarks" MaxLength="256" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <ComplexType Name="usp_SelectInvestmentAll_Result">
+    <Property Type="DateTime" Name="Month" Nullable="true" Precision="23" />
+    <Property Type="Decimal" Name="Amount" Nullable="true" Precision="38" Scale="4" />
+  </ComplexType>
+  <ComplexType Name="usp_SelectInvestmentAll_Result1">
+    <Property Type="DateTime" Name="Month" Nullable="false" Precision="23" />
+    <Property Type="Decimal" Name="Amount" Nullable="true" Precision="38" Scale="4" />
+  </ComplexType>
+  <ComplexType Name="usp_SelectInvestmentAll_Result2">
+    <Property Type="DateTime" Name="Month" Nullable="false" Precision="23" />
+    <Property Type="Decimal" Name="Amount" Nullable="false" Precision="38" Scale="4" />
+  </ComplexType>
+  <ComplexType Name="usp_SelectAssetsInvestmentOnlyAll_Result">
+    <Property Type="Int32" Name="FundId" Nullable="true" />
+    <Property Type="DateTime" Name="AssetDate" Nullable="true" Precision="23" />
+    <Property Type="Decimal" Name="Shares" Nullable="true" Precision="14" Scale="2" />
+    <Property Type="Decimal" Name="Assets" Nullable="true" Precision="14" Scale="4" />
+  </ComplexType>
+  <EntityType Name="AssetsInvestmentOnly">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="FundId" />
+      <PropertyRef Name="AssetDate" />
+      <PropertyRef Name="Shares" />
+      <PropertyRef Name="Assets" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="FundId" Nullable="false" />
+    <Property Type="DateTime" Name="AssetDate" Nullable="false" />
+    <Property Type="Decimal" Name="Shares" Nullable="false" Precision="14" Scale="2" />
+    <Property Type="Decimal" Name="Assets" Nullable="false" Precision="14" Scale="4" />
+  </EntityType>
+</Schema>

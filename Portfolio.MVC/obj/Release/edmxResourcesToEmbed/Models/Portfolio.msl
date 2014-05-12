@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PortfolioModelStoreContainer" CdmEntityContainer="PortfolioEntities">
+    <EntitySetMapping Name="Assets">
+      <EntityTypeMapping TypeName="PortfolioModel.Asset">
+        <MappingFragment StoreEntitySet="Assets">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FundId" ColumnName="FundId" />
+          <ScalarProperty Name="AssetDate" ColumnName="AssetDate" />
+          <ScalarProperty Name="Shares" ColumnName="Shares" />
+          <ScalarProperty Name="Assets" ColumnName="Assets" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExchangeRates">
+      <EntityTypeMapping TypeName="PortfolioModel.ExchangeRate">
+        <MappingFragment StoreEntitySet="ExchangeRate">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="RateDate" ColumnName="RateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Funds">
+      <EntityTypeMapping TypeName="PortfolioModel.Fund">
+        <MappingFragment StoreEntitySet="Funds">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FundCode" ColumnName="FundCode" />
+          <ScalarProperty Name="FundName" ColumnName="FundName" />
+          <ScalarProperty Name="FundType" ColumnName="FundType" />
+          <ScalarProperty Name="FundCodePrefix" ColumnName="FundCodePrefix" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JobEventLogs">
+      <EntityTypeMapping TypeName="PortfolioModel.JobEventLog">
+        <MappingFragment StoreEntitySet="JobEventLog">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Job" ColumnName="Job" />
+          <ScalarProperty Name="RunDate" ColumnName="RunDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="LastRunOn" ColumnName="LastRunOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Prices">
+      <EntityTypeMapping TypeName="PortfolioModel.Price">
+        <MappingFragment StoreEntitySet="Price">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FundId" ColumnName="FundId" />
+          <ScalarProperty Name="PriceDate" ColumnName="PriceDate" />
+          <ScalarProperty Name="Price1" ColumnName="Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Trades">
+      <EntityTypeMapping TypeName="PortfolioModel.Trade">
+        <MappingFragment StoreEntitySet="Trades">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FundId" ColumnName="FundId" />
+          <ScalarProperty Name="TradeDate" ColumnName="TradeDate" />
+          <ScalarProperty Name="Shares" ColumnName="Shares" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="PortfolioModel.Trade">
+        <ModificationFunctionMapping>
+          <InsertFunction FunctionName="PortfolioModel.Store.usp_InsertTrade">
+            <ScalarProperty Name="Amount" ParameterName="Amount" />
+            <ScalarProperty Name="Shares" ParameterName="Shares" />
+            <ScalarProperty Name="TradeDate" ParameterName="TradeDate" />
+            <ScalarProperty Name="FundId" ParameterName="FundId" />
+          </InsertFunction>
+        </ModificationFunctionMapping>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Deposits">
+      <EntityTypeMapping TypeName="PortfolioModel.Deposit">
+        <MappingFragment StoreEntitySet="Deposit">
+          <ScalarProperty Name="FundId" ColumnName="FundId" />
+          <ScalarProperty Name="Bank" ColumnName="Bank" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="InterestRate" ColumnName="InterestRate" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="MatureDate" ColumnName="MatureDate" />
+          <ScalarProperty Name="DepositDate" ColumnName="DepositDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dividents">
+      <EntityTypeMapping TypeName="PortfolioModel.Divident">
+        <MappingFragment StoreEntitySet="Divident">
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Shares" ColumnName="Shares" />
+          <ScalarProperty Name="DividentDate" ColumnName="DividentDate" />
+          <ScalarProperty Name="FundId" ColumnName="FundId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventLogs">
+      <EntityTypeMapping TypeName="PortfolioModel.EventLog">
+        <MappingFragment StoreEntitySet="EventLog">
+          <ScalarProperty Name="LogTimestamp" ColumnName="LogTimestamp" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reminders">
+      <EntityTypeMapping TypeName="PortfolioModel.Reminder">
+        <MappingFragment StoreEntitySet="Reminders">
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="Due" ColumnName="Due" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
